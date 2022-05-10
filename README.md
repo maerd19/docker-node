@@ -39,3 +39,10 @@ docker run -v $(pwd):/app:ro -v /app/node_modules --env PORT=4000 -p 4000:3000 -
 ```
 docker run -v $(pwd):/app:ro -v /app/node_modules --env-file ./.env -p 4000:3000 -d --name node-app node-app-image
 ```
+
+## Delete stale valumes
+
+```
+docker volume prune
+docker volume ls
+```
