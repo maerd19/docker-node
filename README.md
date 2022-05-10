@@ -15,3 +15,8 @@ docker run -p 3000:3000 -d --name node-app node-app-image
 ```
 docker exec -it node-app bash
 ```
+
+## Syncing source code with bind mounts
+
+```
+docker run -v $(pwd):/app -p 3000:3000 -d --name node-app node-app-image
