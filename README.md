@@ -1,4 +1,22 @@
-## Create docker image
+## Lift docker-compose
+
+```
+docker-compose up -d
+```
+
+## Shutdown docker-compose
+
+```
+docker-compose down -v
+```
+
+## Force docker-compose to build a new image
+
+If changes were made to the Dockerfile it is necessary to run this command
+```
+docker-compose up -d --build
+```
+<!-- ## Create docker image
 
 ```
 docker build -t node-app-image .
@@ -38,7 +56,7 @@ docker run -v $(pwd):/app:ro -v /app/node_modules --env PORT=4000 -p 4000:3000 -
 
 ```
 docker run -v $(pwd):/app:ro -v /app/node_modules --env-file ./.env -p 4000:3000 -d --name node-app node-app-image
-```
+``` -->
 
 ## Delete stale valumes
 
