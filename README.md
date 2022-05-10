@@ -33,3 +33,9 @@ docker run -v $(pwd):/app:ro -v /app/node_modules -p 3000:3000 -d --name node-ap
 ```
 docker run -v $(pwd):/app:ro -v /app/node_modules --env PORT=4000 -p 4000:3000 -d --name node-app node-app-image
 ```
+
+## Load environment variables from file
+
+```
+docker run -v $(pwd):/app:ro -v /app/node_modules --env-file ./.env -p 4000:3000 -d --name node-app node-app-image
+```
