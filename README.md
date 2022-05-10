@@ -9,3 +9,9 @@ docker build -t node-app-image .
 ```
 docker run -p 3000:3000 -d --name node-app node-app-image
 ```
+
+## View inside a container
+
+```
+docker exec -it node-app bash
+```
