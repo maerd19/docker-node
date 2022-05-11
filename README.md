@@ -4,7 +4,7 @@
 docker-compose up -d
 ```
 
-## Shutdown docker-compose
+## Shutdown docker-compose and delete volumes
 
 ```
 docker-compose down -v
@@ -15,6 +15,22 @@ docker-compose down -v
 If changes were made to the Dockerfile it is necessary to run this command
 ```
 docker-compose up -d --build
+```
+
+## Run more than 1 docker-compose file
+
+This command will execute all the configuration in the base file and then will execute the remaining configuration in the dev/prod file. 
+The second file will overwrite configuration that exist in the first file.
+We can also force tu build a container with this command
+
+```
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build
+```
+
+## Shutdown more that 1 docker-compose file
+
+```
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml down -v
 ```
 <!-- ## Create docker image
 
