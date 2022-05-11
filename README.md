@@ -27,10 +27,16 @@ We can also force tu build a container with this command
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build
 ```
 
-## Shutdown more that 1 docker-compose file
+## Shutdown more that 1 docker-compose file and delete ALL volumes
 
 ```
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml down -v
+```
+
+## Access directly to mongo shell
+
+```
+docker exec -it fcc-docker-express-mongo-1 mongo -u "USERNAME" -p "PASSWORD"
 ```
 <!-- ## Create docker image
 
