@@ -38,6 +38,18 @@ docker-compose -f docker-compose.yml -f docker-compose.dev.yml down -v
 ```
 docker exec -it fcc-docker-express-mongo-1 mongo -u "USERNAME" -p "PASSWORD"
 ```
+
+## Take a look to our networks
+
+```
+docker network ls
+```
+
+## More information about an specific network
+
+```
+docker network inspect docker-network-name
+```
 <!-- ## Create docker image
 
 ```
