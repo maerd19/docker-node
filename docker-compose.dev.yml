@@ -5,14 +5,19 @@ services:
       context: .
       args:
         NODE_ENV: development
+    # The volumes key mounts the project directory (current directory) on the host to /app inside the container, 
+    # allowing you to modify the code on the fly, without having to rebuild the image.
     volumes:
       - ./:/app
       - /app/node_modules
+    # The environment key sets the NODE_ENV environment variable as well as other variables.
     environment:
       - NODE_ENV=development
       - MONGO_USER=ivan
       - MONGO_PASSWORD=mypassword
+      - SESSION_SECRET=secret
     command: npm run dev
+
   mongo:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=ivan

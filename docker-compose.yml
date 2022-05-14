@@ -1,6 +1,8 @@
 version: "3"
 services:
   node-app:
+    # The node-app service uses an image that’s built from the Dockerfile in the current directory. 
+    # It then binds the container and the host machine to the exposed port, 3000
     build: .
     ports:
       - "3000:3000"
@@ -8,7 +10,7 @@ services:
       - PORT=3000
     depends_on:
       - mongo
-
+  # The mongo service uses a public mongo image pulled from the Docker Hub registry.
   mongo:
     image: mongo
     environment:
@@ -16,6 +18,9 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=mypassword
     volumes:
       - mongo-db:/data/db
+  # The redis service uses a public Redis image pulled from the Docker Hub registry.
+  redis:
+    image: redis
 
 volumes:
   mongo-db:

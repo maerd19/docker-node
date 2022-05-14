@@ -50,6 +50,12 @@ docker network ls
 ```
 docker network inspect docker-network-name
 ```
+
+## View logs from specific container
+
+```
+docker logs container_name -f
+```
 <!-- ## Create docker image
 
 ```
