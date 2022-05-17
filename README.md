@@ -56,6 +56,12 @@ docker network inspect docker-network-name
 ```
 docker logs container_name -f
 ```
+
+## Scale SERVICE to NUM instances
+
+```
+docker-compose -f docker-compose.yml -f docker.compose.dev.yml up -d --scale node-app=2
+```
 <!-- ## Create docker image
 
 ```
