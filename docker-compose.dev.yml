@@ -17,6 +17,9 @@ services:
       - MONGO_PASSWORD=mypassword
       - SESSION_SECRET=secret
     command: npm run dev
+  nginx:
+    ports:
+      - "3000:80"
 
   mongo:
     environment:
