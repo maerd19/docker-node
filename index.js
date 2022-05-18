@@ -72,7 +72,7 @@ app.use(
 app.use(express.json())
 
 app.get('/api/v1', (req, res) => {
-    res.send('<h2>Hi there!!!</h1>')
+    res.send('<h2>Hi there</h1>')
     console.log('yeah it ran!!');
 })
 

@@ -96,6 +96,20 @@ docker-compose -f docker-compose.yml -f docker-compose.prod.yml pull
 ```
 docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --no-deps node-app
 ```
+
+# Improved Dockerhub workflow
+https://containrrr.dev/watchtower/ <br>
+With watchtower we can update the running version of our containerized app simply by pushing a new image to our Docker Hub.
+
+## View an specific service
+```
+docker run -d --name watchtower -e WATCHTOWER_TRACE=true -e WATCHTOWER_DEBUG=true -e WATCHTOWER_POLL_INTERVAL=50 -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower app-node-app-1
+```
+
+## View watchtower logs
+```
+docker logs watchtower -f
+```
 <!-- ## Create docker image
 
 ```
