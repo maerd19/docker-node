@@ -3,6 +3,7 @@ services:
   node-app:
     # The node-app service uses an image that’s built from the Dockerfile in the current directory.
     build: .
+    image: maerd19/node-app
     environment:
       - PORT=3000
     depends_on:
