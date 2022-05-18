@@ -57,10 +57,44 @@ docker network inspect docker-network-name
 docker logs container_name -f
 ```
 
+## Delete stale valumes
+
+```
+docker volume prune
+docker volume ls
+```
+
 ## Scale SERVICE to NUM instances
 
 ```
 docker-compose -f docker-compose.yml -f docker.compose.dev.yml up -d --scale node-app=2
+```
+</br>
+
+# Improved Dockerhub workflow
+If we make changes to our code we can: 
+ * Rebuild image with changes.
+ * Push image to docker hub.
+ * Pull changed image from prod server
+
+
+## Rebuild image with changes
+If we only make changes in the code we can specifically build our node-app service
+```
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml build node-app
+```
+## Push service image to docker hub
+```
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml push node-app
+```
+## Pull image from prod server and server again
+```
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml pull
+```
+
+## Specifically update node-app in server
+```
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --no-deps node-app
 ```
 <!-- ## Create docker image
 
@@ -103,10 +137,3 @@ docker run -v $(pwd):/app:ro -v /app/node_modules --env PORT=4000 -p 4000:3000 -
 ```
 docker run -v $(pwd):/app:ro -v /app/node_modules --env-file ./.env -p 4000:3000 -d --name node-app node-app-image
 ``` -->
-
-## Delete stale valumes
-
-```
-docker volume prune
-docker volume ls
-```
